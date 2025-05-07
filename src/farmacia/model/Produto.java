@@ -2,7 +2,7 @@ package farmacia.model;
 
 // Classe abstrata que serve como base para Medicamentos e Cosméticos (SuperClasse) //
 public abstract class Produto {
-	
+
 	// Atributos comuns a todos os produtos
 	private int id;
 	private String nome;

@@ -8,7 +8,7 @@ public class Medicamentos extends Produto {
 
 	// Construtor que inicializa todos os atributos, inclusive os herdados //
 	public Medicamentos(int id, String nome, int tipo, float preco, String generico) {
-		
+
 		// Chama o construtor da SuperClasse Produto //
 		super(id, nome, tipo, preco);
 		this.generico = generico;

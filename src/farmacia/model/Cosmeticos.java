@@ -2,10 +2,10 @@ package farmacia.model;
 
 //Classe Cosmetico herda da classe Produto, a SuperClasse //
 public class Cosmeticos extends Produto {
-	
+
 	// Atributo exclusivo da classe Cosmeticos //
 	private String fragrancia;
-	
+
 	// Construtor que inicializa todos os atributos, inclusive os herdados //
 	public Cosmeticos(int id, String nome, int tipo, float preco, String fragrancia) {
 		// Chama o construtor da SuperClasse Produto
@@ -21,7 +21,7 @@ public class Cosmeticos extends Produto {
 	public void setFragrancia(String fragrancia) {
 		this.fragrancia = fragrancia;
 	}
-	
+
 	// Sobreescreve o método visualizar para visualizar a fragrancia //
 	@Override
 	public void visualizar() {
@@ -29,5 +29,4 @@ public class Cosmeticos extends Produto {
 		System.out.println("Fragrância: " + this.fragrancia);
 	}
 
-	
 }
