@@ -13,10 +13,15 @@ public class Menu {
 
 	public static void main(String[] args) {
 
+		// Scanner para leitura de dados do usuário //
 		Scanner leia = new Scanner(System.in);
+		// Controller para manipular os produtos //
 		farmaciacontroller controller = new farmaciacontroller();
+		
+		// Variável para armazenar a opção do menu //
 		int opcao = -1;
 
+		// Loop principal da aplicação //
 		while (true) {
 			System.out.print(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_BLUE_BRIGHT);
 			System.out.println("╔═════════◇─◇──◇─◇═════════╗");
@@ -44,8 +49,10 @@ public class Menu {
 				continue; // volta ao início do while
 			}
 
+			// Opções do menu //
 			switch (opcao) {
 			case 1:
+				// Cadastra o produto //
 				System.out.print("\nInforme o nome do produto: ");
 				String nome = leia.nextLine();
 
@@ -57,6 +64,7 @@ public class Menu {
 				float preco = leia.nextFloat();
 				leia.nextLine();
 
+				// Gera ID automaticamente //
 				int id = controller.gerarNumero();
 
 				if (tipo == 1) {
@@ -73,10 +81,12 @@ public class Menu {
 				break;
 
 			case 2:
+				// Lista todos os produtos cadastrados //
 				controller.listarTodosProdutos();
 				break;
 
 			case 3:
+				// Busca de produto por ID //
 				System.out.print("Digite o ID do produto: ");
 				int idConsulta = leia.nextInt();
 				leia.nextLine();
@@ -84,16 +94,19 @@ public class Menu {
 				break;
 
 			case 4:
+				// Atualiza o produto //
 				System.out.print("Digite o ID do produto que deseja atualizar: ");
 				int idAtualizar = leia.nextInt();
 				leia.nextLine();
 
+				// Verifica se o produto existe //
 				Produto produtoExistente = controller.buscarNaCollection(idAtualizar);
 				if (produtoExistente == null) {
 					System.out.println("⚠️ Produto não encontrado!");
 					break;
 				}
 
+				// Atualiza os dados dos produtos // 
 				System.out.print("Novo nome: ");
 				String novoNome = leia.nextLine();
 
@@ -113,6 +126,7 @@ public class Menu {
 				break;
 
 			case 5:
+				// Deleta o produto pelo ID //
 				System.out.print("Digite o ID do produto a ser deletado: ");
 				int idDeletar = leia.nextInt();
 				leia.nextLine();
@@ -120,14 +134,15 @@ public class Menu {
 				break;
 
 			case 0:
-				System.out.println("\nEncerrando a aplicação... Até logo!\n");
-				sobre(); // Método sobre //
-				leia.close(); // Fecha o scanner //
+				// Encerra o sistema //
+				System.out.println("\nEncerrando a aplicação... Até logo!");
+				sobre();
+				leia.close(); 
 				System.exit(0);
 				break;
 
 			default:
-				System.out.println("\nOpção inválida! Tente novamente.");
+				System.out.println("\nOpção inválida. Tente novamente!");
 				break;
 			}
 		}
@@ -136,7 +151,7 @@ public class Menu {
 	public static void sobre() {
 		System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
 		System.out.println(" ░░                                                                ░░");
-		System.out.println(" 	 ✦ Projeto desenvolvido por: Fernanda Murched;                  ");
+		System.out.println(" 	   ✦ Projeto desenvolvido por: Fernanda Murched;                 ");
 		System.out.println("       ✦ Generation Brasil - fernanda_murched@outlook.com.br;        ");											
 		System.out.println("       ✦ GitHub- https://github.com/FernandaMurched.                 ");
 		System.out.println(" ░░                                                                ░░");		
