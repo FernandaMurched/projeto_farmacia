@@ -1,5 +1,6 @@
 package farmacia;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import farmacia.util.Cores;
@@ -9,7 +10,7 @@ public class Menu {
 	public static void main(String[] args) {
 
 		Scanner leia = new Scanner(System.in);
-		int opcao;
+		int opcao = -1;
 		
 		while (true) {
 			System.out.print(Cores.ANSI_WHITE_BACKGROUND + Cores.TEXT_BLUE_BRIGHT);
@@ -20,7 +21,7 @@ public class Menu {
 			System.out.println("╚═════════◇─◇──◇─◇═════════╝");
 			System.out.println("                                                    ");
 			System.out.println("           1 - Cadastrar um produto                 ");
-			System.out.println("           2 - Visualizar todas os produto          ");
+			System.out.println("           2 - Visualizar todos os produto          ");
 			System.out.println("           3 - Buscar produtos por ID               ");
 			System.out.println("           4 - Atualizar produto                    ");
 			System.out.println("           5 - Deletar produto                      ");
@@ -30,11 +31,18 @@ public class Menu {
 			System.out.println("─◇             Escolha a opção desejada:           ◇─");
 			System.out.println(" ╚══════════════════════════════════════════════════╝");
 
-			opcao = leia.nextInt();
-
+			try {
+                opcao = leia.nextInt();
+                leia.nextLine(); // consome a quebra de linha
+            } catch (InputMismatchException e) {
+                System.out.println(Cores.TEXT_RED + "\n⚠️ Entrada inválida! Digite apenas números." + Cores.TEXT_RESET);
+                leia.nextLine(); // limpa o buffer
+                continue; // volta ao início do while
+            }
+			
 			switch (opcao) {
 			case 1:
-				System.out.println("\n Ccadastrar um produto");
+				System.out.println("\n Cadastrar um produto");
 			
 				break;
 
@@ -65,10 +73,8 @@ public class Menu {
 				break;
 			}
 			
-			leia.close();
-			
 		}
-		
+
 	}
 
 }

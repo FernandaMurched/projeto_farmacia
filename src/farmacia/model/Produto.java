@@ -1,23 +1,23 @@
 package farmacia.model;
 
-public class Produto {
+// Classe abstrata que serve como base para Medicamentos e Cosméticos (SuperClasse) //
+public abstract class Produto {
+	
 	// Atributos comuns a todos os produtos
 	private int id;
 	private String nome;
 	private int tipo; // 1 - Medicamento | 2 - Cosmético
-	private int quantidade;
 	private float preco;
 
-	// Método Construtor
-	public Produto(int id, String nome, int tipo, int quantidade, float preco) {
+	// Método Construtor que vai inicializar os atributos //
+	public Produto(int id, String nome, int tipo, float preco) {
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
-		this.quantidade = quantidade;
 		this.preco = preco;
 	}
 
-	// Métodos get e set
+	// Métodos get e set para acessar e/ou modificar os atributos //
 	public int getId() {
 		return id;
 	}
@@ -42,14 +42,6 @@ public class Produto {
 		this.tipo = tipo;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	public double getPreco() {
 		return preco;
 	}
@@ -66,7 +58,6 @@ public class Produto {
 		System.out.println("ID: " + id);
 		System.out.println("Nome: " + nome);
 		System.out.println("Tipo: " + tipoProduto);
-		System.out.println("Quantidade: " + quantidade);
 		System.out.println("Preço: R$ " + preco);
 		System.out.println("-------------------------------------");
 	}
